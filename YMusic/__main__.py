@@ -17,9 +17,7 @@ async def init():
     try:
         await pytgcalls.stream_call("https://telegra.ph/file/cba632240b79207bf8a9c.mp4")
     except NoActiveGroupCall:
-        LOGGER("YMusic").error(
-            "Please turn on the videochat of your log group\channel.\n\nStopping Bot..."
-        )
+        LOGGER("YMusic").error("Please turn on the videochat of your log group\channel.\n\nStopping Bot...")
         exit()
     except:
         pass

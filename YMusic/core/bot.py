@@ -19,10 +19,6 @@ class Call:
                 cache_duration=100,
             )
 
-#LOGGER = logging.getLogger(__name__) # or any name you choose.
-
-# Configure the logger (optional, but recommended)
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     def get_client(self):
         return self.client
 

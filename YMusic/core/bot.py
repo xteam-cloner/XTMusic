@@ -23,13 +23,11 @@ class Call:
                 
                 def get_pytgcalls(self):
                     return self.pytgcalls
+                    
                     try:
-    # Some code that might cause an error
-    YMusicBot = YMusicUser = YMusicClient = None
-except Exception as e:
-    print(f"An error occurred: {e}")
-    # Handle the error, possibly by setting default values or logging.
-finally:
-    # Code that will always execute, like cleanup.
-    print ("Finishing")
+                        YMusicBot = YMusicUser = YMusicClient = None
+                    except Exception as e:
+                        print(f"An error occurred: {e}")
+                    finally:
+                        print ("Finishing")
     

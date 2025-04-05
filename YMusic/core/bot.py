@@ -13,12 +13,10 @@ class YMusicBot:
                 api_hash=config.API_HASH,
                 session_string=str(config.STRING1),
             )
-            self.YMusicUser.start()  # Mulai klien Pyrogram
             self.one = PyTgCalls(
                 self.YMusicUser,
                 cache_duration=100,
             )
-            self.one.start() # Mulai PyTgCalls
             LOGGER.info("YMusicBot berhasil diinisialisasi.")
         except Exception as e:
             LOGGER.error(f"Gagal menginisialisasi YMusicBot: {e}")

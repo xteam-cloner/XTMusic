@@ -8,11 +8,6 @@ from YMusic.plugins import ALL_MODULES
 from YMusic import client, pytgcalls
 
 async def init():
-    if (
-        not config.SESSION_STRING
-    ):
-        LOGGER(__name__).error("Assistant client variables not defined, exiting...")
-        exit()
     await client .start()
     for all_module in ALL_MODULES:
         importlib.import_module("YMusic.plugins" + all_module)

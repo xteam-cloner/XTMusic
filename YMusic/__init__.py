@@ -1,8 +1,8 @@
-from YMusic.core.bot import YMusicBot, YMusicUser
+from YMusic.core.bot import YMusic, YMusicUser
 from .logging import LOGGER
 from YMusic.misc import sudo
 
 sudo()
 
-app = YMusicBot
+app = YMusic
 call = YMusicUser

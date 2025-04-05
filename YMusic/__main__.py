@@ -37,9 +37,9 @@ async def start_services():
 
 async def stop_services():
     try:
-        if client.is_connected: #Add check for client connection.
+        if client.is_start: #Add check for client connection.
             await client.stop()
-        if pytgcalls.is_connected: #Add check for pytgcalls connection.
+        if pytgcalls.is_start: #Add check for pytgcalls connection.
             await pytgcalls.stop()
         LOGGER("YMusic").info("Services Stopped.")
         LOGGER("YMusic").info("╔═════ஜ۩۞۩ஜ════╗\n  ♨️𝗠𝗔𝗗𝗘 𝗕𝗬 𝐂𝐡𝐢𝐧𝐧𝐚 ♨️\n╚═════ஜ۩۞۩ஜ════╝")

@@ -18,14 +18,11 @@ class Call:
                 self.client,
                 cache_duration=100,
             )
-            LOGGER.info("YMusicBot berhasil diinisialisasi.")
-        except ValueError as ve:
-            LOGGER.error(f"Nilai konfigurasi tidak valid: {ve}")
-            raise  # Re-raise exception untuk penanganan lebih lanjut
-        except Exception as e:
-            LOGGER.error(f"Gagal menginisialisasi YMusicBot: {e}")
-            raise  # Re-raise exception untuk penanganan lebih lanjut
 
+#LOGGER = logging.getLogger(__name__) # or any name you choose.
+
+# Configure the logger (optional, but recommended)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     def get_client(self):
         return self.client
 

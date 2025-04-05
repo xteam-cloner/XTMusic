@@ -4,12 +4,31 @@ from pytgcalls import PyTgCalls
 import config
 from ..logging import LOGGER
 
-api_id: int = config.API_ID
-api_hash: str = config.API_HASH
-session_string: str = config.SESSION_STRING
+class YMusicBot:
+    def __init__(self):
+        try:
+            self.YMusicUser = Client(
+                name="AnonXAss1",
+                api_id=config.API_ID,
+                api_hash=config.API_HASH,
+                session_string=str(config.STRING1),
+            )
+            self.YMusicUser.start()  # Mulai klien Pyrogram
+            self.one = PyTgCalls(
+                self.YMusicUser,
+                cache_duration=100,
+            )
+            self.one.start() # Mulai PyTgCalls
+            LOGGER.info("YMusicBot berhasil diinisialisasi.")
+        except Exception as e:
+            LOGGER.error(f"Gagal menginisialisasi YMusicBot: {e}")
+            raise  # Re-raise exception untuk penanganan lebih lanjut jika diperlukan
 
-YMusicBot = Client(
-    name="YMusic", api_id=api_id, api_hash=api_hash, session_string=session_string
+YMusic = Client(
+    name="YMusic",
+    api_id=config.API_ID,
+    api_hash=config.API_HASH,
+    session_string=config.SESSION_STRING,
 )
 
-YMusicUser = PyTgCalls(YMusicBot)
+YMusicUser = PyTgCalls(YMusic)

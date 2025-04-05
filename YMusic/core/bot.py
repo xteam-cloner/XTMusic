@@ -31,8 +31,3 @@ class Call:
                     except Exception as init_error:
                         LOGGER.critical(f"YMusicBot gagal diinisialisasi secara kritis: {init_error}")
                         YMusicBot = YMusicUser = YMusicClient = None
-                        if YMusicBot:
-                            LOGGER.info("YMusicBot siap digunakan.")
-                        else:
-                            LOGGER.critical("YMusicBot tidak dapat diinisialisasi. Periksa konfigurasi dan log untuk detailnya.")
-

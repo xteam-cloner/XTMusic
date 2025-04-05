@@ -1,4 +1,4 @@
-from YMusic.core.bot import YMusic, YMusicUser
+from YMusic.core.bot import YMusicBot, YMusicClient
 from .logging import LOGGER
 from YMusic.misc import sudo
 

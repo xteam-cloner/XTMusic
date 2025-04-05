@@ -1,8 +1,10 @@
-pyrofork
-git+https://github.com/pytgcalls/pytgcalls
+pyrogram
+#git+https://github.com/pytgcalls/pytgcalls
 yt-dlp
 tgcrypto
 pytubefix
 speedtest-cli
 ffprobe
 httpx
+py-tgcalls==1.2.9
+ntgcalls==1.1.2

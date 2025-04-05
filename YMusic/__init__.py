@@ -4,7 +4,7 @@ from YMusic.misc import sudo
 
 sudo()
 
-app = client 
+app = Client
 call = pytgcalls 
 #YMusicBot = Call()
 

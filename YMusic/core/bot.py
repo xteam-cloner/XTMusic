@@ -28,6 +28,5 @@ class Call:
                         YMusicBot = Call()
                         YMusicUser = YMusicBot.get_pytgcalls()
                         YMusicClient = YMusicBot.get_client()
-                    except Exception as init_error:
-                        LOGGER.critical(f"YMusicBot gagal diinisialisasi secara kritis: {init_error}")
-                        YMusicBot = YMusicUser = YMusicClient = None
+                    
+                    YMusicBot = YMusicUser = YMusicClient = None

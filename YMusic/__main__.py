@@ -1,6 +1,6 @@
 import importlib
 import asyncio
-from pytgcalls import idle
+from pyrogram import idle
 from pytgcalls import PyTgCalls
 from YMusic import LOGGER
 from YMusic.plugins import ALL_MODULES

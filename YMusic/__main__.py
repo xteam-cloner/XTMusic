@@ -4,14 +4,14 @@ from pytgcalls import idle
 from pytgcalls import PyTgCalls
 from YMusic import LOGGER
 from YMusic.plugins import ALL_MODULES
-from YMusic import YMusic, YMusicUser
+from YMusic import YMusicBot, YMusicClient
 
 loop = asyncio.get_event_loop()
 
 
 async def init():
 
-    YMusicUser.start()
+    YMusicClient.start()
     LOGGER("YMusic").info("Account Started Successfully")
 
     for all_module in ALL_MODULES:

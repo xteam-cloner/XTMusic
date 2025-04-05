@@ -1,7 +1,7 @@
 import importlib
 import asyncio
 from pyrogram import idle
-from pytgcalls import PyTgCalls
+from pytgcalls import NoActiveGroupCall
 from YMusic import LOGGER
 from YMusic.plugins import ALL_MODULES
 from YMusic import client, pytgcalls
@@ -18,26 +18,21 @@ async def init():
             except ImportError as e:
                 LOGGER("YMusic.plugins").error(f"Failed to import module {module_name}: {e}")
 
+        await client.start()
         await pytgcalls.start()
-        await idle()
-
-    except Exception as e:
-        LOGGER("YMusic").critical(f"Initialization failed: {e}")
-        await client.stop()
-        await pytgcalls.stop()
-        return
-
-async def main():
     try:
-        await init()
-    except KeyboardInterrupt:
-        LOGGER("YMusic").info("Stopping YMusic Bot due to KeyboardInterrupt! GoodBye")
-    except Exception as e:
-        LOGGER("YMusic").critical(f"An unexpected error occurred: {e}")
-    finally:
-        LOGGER("YMusic").info("Stopping YMusic Bot! GoodBye")
+        await pytgcalls.stream_call("https://telegra.ph/file/cba632240b79207bf8a9c.mp4")
+    except NoActiveGroupCall:
+        LOGGER("AnonXMusic").error(
+            "Please turn on the videochat of your log group\channel.\n\nStopping Bot..."
+        )
+        exit()
+    except:
+        pass
+        await idle()
         await client.stop()
         await pytgcalls.stop()
-
-if __name__ == "__main__":
+        LOGGER("YMusic").info("╔═════ஜ۩۞۩ஜ════╗\n  ♨️𝗠𝗔𝗗𝗘 𝗕𝗬 𝐂𝐡𝐢𝐧𝐧𝐚 ♨️\n╚═════ஜ۩۞۩ஜ════╝")
+        
+        if __name__ == "__main__":
     asyncio.get_event_loop().run_until_complete(init())

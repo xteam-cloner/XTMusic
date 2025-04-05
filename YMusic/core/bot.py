@@ -24,7 +24,7 @@ class Call:
             raise  # Re-raise exception untuk penanganan lebih lanjut jika diperlukan
 
 # Instantiate the Call class
-YMusicBot = Call()
+#YMusicBot = Call()
 
 # Access the PyTgCalls instance and Client from the Call object
 YMusicUser = YMusicBot.pytgcalls

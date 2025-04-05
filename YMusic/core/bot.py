@@ -12,7 +12,7 @@ class Call:
                 name="AnonXAss1",
                 api_id=config.API_ID,
                 api_hash=config.API_HASH,
-                session_string=str(config.STRING1),
+                session_string=str(config.SESSION_STRING),
             )
             self.pytgcalls = PyTgCalls(
                 self.client,

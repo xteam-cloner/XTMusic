@@ -18,26 +18,21 @@ class Call:
                 self.client,
                 cache_duration=100,
             )
-
-    def get_client(self):
-        return self.client
-
-    def get_pytgcalls(self):
-        return self.pytgcalls
-
-# Instantiate the Call class
-try:
-    YMusicBot = Call()
-    YMusicUser = YMusicBot.get_pytgcalls()
-    YMusicClient = YMusicBot.get_client()
-except Exception as init_error:
-    LOGGER.critical(f"YMusicBot gagal diinisialisasi secara kritis: {init_error}")
-    YMusicBot = None
-    YMusicUser = None
-    YMusicClient = None
-
-if YMusicBot:
-    LOGGER.info("YMusicBot siap digunakan.")
-else:
-    LOGGER.critical("YMusicBot tidak dapat diinisialisasi. Periksa konfigurasi dan log untuk detailnya.")
+            def get_client(self):
+                return self.client
+                
+                def get_pytgcalls(self):
+                    return self.pytgcalls
+                    
+                    try:
+                        YMusicBot = Call()
+                        YMusicUser = YMusicBot.get_pytgcalls()
+                        YMusicClient = YMusicBot.get_client()
+                    except Exception as init_error:
+                        LOGGER.critical(f"YMusicBot gagal diinisialisasi secara kritis: {init_error}")
+                        YMusicBot = YMusicUser = YMusicClient = None
+                        if YMusicBot:
+                            LOGGER.info("YMusicBot siap digunakan.")
+                        else:
+                            LOGGER.critical("YMusicBot tidak dapat diinisialisasi. Periksa konfigurasi dan log untuk detailnya.")
 

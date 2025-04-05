@@ -20,21 +20,27 @@ async def start_services():
             LOGGER("YMusic").info("Started Streaming Video Call")
         except NoActiveGroupCall:
             LOGGER("YMusic").error("No Active Group Call Found.")
-            return  # Berhenti jika tidak ada panggilan aktif
+            await stop_services() # Stop services if no active group call.
+            return
         except Exception as e:
             LOGGER("YMusic").error(f"Error starting video call: {e}")
-            return # Berhenti jika error lain.
+            await stop_services() # Stop services if other error.
+            return
 
         await idle()
     except Exception as e:
         LOGGER("YMusic").error(f"An error occurred during startup: {e}")
+        await stop_services() # Stop services if startup error.
     finally:
-        await stop_services()
+        # stop_services will be called in any case, even if idle is interrupted.
+        pass
 
 async def stop_services():
     try:
-        await client.stop()
-        await pytgcalls.stop()
+        if client.is_connected: #Add check for client connection.
+            await client.stop()
+        if pytgcalls.is_connected: #Add check for pytgcalls connection.
+            await pytgcalls.stop()
         LOGGER("YMusic").info("Services Stopped.")
         LOGGER("YMusic").info("╔═════ஜ۩۞۩ஜ════╗\n  ♨️𝗠𝗔𝗗𝗘 𝗕𝗬 𝐂𝐡𝐢𝐧𝐧𝐚 ♨️\n╚═════ஜ۩۞۩ஜ════╝")
     except Exception as e:
@@ -42,4 +48,3 @@ async def stop_services():
 
 if __name__ == "__main__":
     asyncio.get_event_loop().run_until_complete(start_services())
-            

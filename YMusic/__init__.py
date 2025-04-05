@@ -4,5 +4,10 @@ from YMusic.misc import sudo
 
 sudo()
 
-app = YMusic
-call = YMusicUser
+app = YMusicClient
+call = YMusicBot
+#YMusicBot = Call()
+
+# Access the PyTgCalls instance and Client from the Call object
+#YMusicUser = YMusicBot.pytgcalls
+#YMusicClient = YMusicBot.client

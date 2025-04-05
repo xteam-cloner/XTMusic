@@ -41,3 +41,17 @@ class Call:
 
     def get_pytgcalls(self):
         return self.pytgcalls
+
+call_instance = Call()
+
+if call_instance.get_client() and call_instance.get_pytgcalls():
+    # PyTgCalls dan Client berhasil diinisialisasi
+    client = call_instance.get_client()
+    pytgcalls = call_instance.get_pytgcalls()
+    # Lanjutkan dengan menggunakan client dan pytgcalls
+else:
+    # Inisialisasi gagal
+    print("Failed to initialize PyTgCalls.")
+
+# You can access the YMusic variables like this:
+print(call_instance.YMusicBot)

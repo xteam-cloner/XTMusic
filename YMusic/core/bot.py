@@ -30,4 +30,3 @@ class Call:
                         print(f"An error occurred: {e}")
                     finally:
                         print ("Finishing")
-    

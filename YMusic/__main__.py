@@ -2,7 +2,7 @@ import importlib
 import asyncio
 import config
 from pyrogram import idle
-from pytgcalls import NoActiveGroupCall
+from pytgcalls.exceptions import NoActiveGroupCall
 from YMusic import LOGGER
 from YMusic.plugins import ALL_MODULES
 from YMusic import client, pytgcalls

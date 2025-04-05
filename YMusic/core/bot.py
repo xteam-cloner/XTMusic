@@ -18,15 +18,26 @@ class Call:
                 self.client,
                 cache_duration=100,
             )
-            def get_client(self):
-                return self.client
-                
-                def get_pytgcalls(self):
-                    return self.pytgcalls
-                    
-                    try:
-                        YMusicBot = YMusicUser = YMusicClient = None
-                    except Exception as e:
-                        print(f"An error occurred: {e}")
-                    finally:
-                        print ("Finishing")
+            LOGGER(__name__).info("PyTgCalls client initialized successfully.") # Better logging.
+
+        except Exception as e:
+            LOGGER(__name__).error(f"Failed to initialize PyTgCalls: {e}")
+            self.client = None
+            self.pytgcalls = None
+
+        try:
+            self.YMusicBot = None # corrected from YMusicBot = YMusicUser = YMusicClient = None
+            self.YMusicUser = None
+            self.YMusicClient = None
+
+        except Exception as e:
+            LOGGER(__name__).error(f"Error initializing YMusic variables: {e}")
+
+        finally:
+            LOGGER(__name__).info("Call class initialization finished.")
+
+    def get_client(self):
+        return self.client
+
+    def get_pytgcalls(self):
+        return self.pytgcalls
